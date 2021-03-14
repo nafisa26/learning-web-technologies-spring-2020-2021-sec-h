@@ -6,12 +6,30 @@
 		$password = $_POST['pass'];
 		$con_password = $_POST['cpass'];
         $id = $_POST['id'];
-		
-		if ($name == "" || $password == "" || $mail == "" || $uname== "" || $con_password )  {
+        $user_type = $_POST['utype'];
+		$check =1;
+		if ($name == "" || $password == "" || $id== "" || $con_password || $user_type)  {
 			echo "null submission";
 		} 
+		elseif ($unlen < 2) {
+			echo "User Name must contain at least 2 characters";
+		}
+		elseif ($plen < 4) {
+			echo "Password must contain at least 8 characters";
+		}
+		elseif ($Password != $con_password) {
+			echo "Confirm Password must match with the Password.";
+		}
+		else{
+			$check =0;
+		}
 
-        if ($checkn == 0 && $checkp == 0 && $checkm == 0 && $checkun == 0) {
+		$_SESSION['name'] = $name;
+        $_SESSION['id'] = $id;
+        $_SESSION['utype'] = $user_type;
+        $_SESSION['pass'] = $password;
+		if($check ==0;)
+			{
 				header('location: Login.php');
 			}
 	}
