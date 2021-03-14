@@ -2,6 +2,9 @@
 	session_start();
 	if(isset($_POST['submit_in']))
 	{
+		$dataString = file_get_contents('data.json');
+        $d_JSON = json_decode($dataString, true);
+        $found = false;
 		$id = $_POST['logid'];
 		$password = $_POST['logpassword'];
 		if ($uname == "" || $password == "") {
