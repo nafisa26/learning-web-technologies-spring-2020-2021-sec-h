@@ -1,1 +1,0 @@
-<center>	<h1>Welcome Bob!</h1>	<a href="profile.php">Profile</a>	<br/>	<a href="Change_password.php">Change Password</a>	<br/>	<a href="View_users.php">View Users</a>	<br/>	<a href="Login.php">Logout</a></center>
