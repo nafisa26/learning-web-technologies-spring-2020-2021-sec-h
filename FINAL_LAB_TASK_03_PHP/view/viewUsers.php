@@ -6,7 +6,7 @@
 <body>
 	<table align="center" border="1">
 		<tr>
-			<td colspan="4">Users</td>
+			<td align="center" colspan="4">Users</td>
 		<tr>
 			<th>ID</th>
 			<th>NAME</th>
@@ -20,7 +20,6 @@
 		$data = mysqli_query($conn,$sql);
 		$row = mysqli_num_rows($data);
 		$result = mysqli_fetch_assoc($data);
-		//print_r($result);
 		if($row!=0){
 			while(mysqli_fetch_assoc($data)){
 				echo "
@@ -34,7 +33,7 @@
 								}
 								?>
 		<tr>
-			<td colspan="4">
+			<td align="right" colspan="4">
 				<a href="home.php">Go Home</a>
 			</td>
 
