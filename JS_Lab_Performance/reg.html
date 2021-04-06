@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Donor Registration-JS</title>
+</head>
+<body>
+		<table id="t1" cellpadding= "22px" border = "2px" align="center" width="90%">
+		<tr>
+			<td width="50%">
+				<img src="logo.png" alt="Logo of the Company" align="Left" >
+			</td>
+			<td align="right"> 
+				<a href="#">Home</a>
+				<a href="Login.php">Login</a>
+				<a href="Registration.php">Registration</a> 
+			</td>
+		</tr>
+		<tr height="400px">
+			<td colspan="2" align="center">
+					<form method="POST" action="#">
+		<fieldset style="width:315px">
+			<legend><strong>REGISTRATION</strong></legend>
+			 <table>
+			 	<tr>
+			 		<td>Name</td>
+			 		<td>:<div id="n"><input type="text" name="name" value=""><br></div></td>
+			 	</tr>
+			 	<tr>
+			 		<td>Email</td>
+			 		<td>:<div id="m"><input type="email" name="mail" value=""><br></div></td>
+			 	</tr>
+			 	<tr>
+			 		<td>Password</td>
+			 		<td>:<div id="p"><input type="password" name="pass" value=""></div><br></td>
+			 	</tr>
+			 	<tr>
+			 		<td>Confirm Password</td>
+			 		<td>:<input type="password" name="cpass" value=""><br></td>
+			 	</tr>
+			 	<tr>
+			 		<td colspan="2"><input type="submit" name="submit" value="Submit" onclick="validate()"></td>
+			 	</tr>
+			 </table>
+		</fieldset>
+	</form>
+		<tr>
+			<td colspan="2" align="center">
+				Copyright©2017
+			</td>
+		</tr>
+	</table>
+	<script>
+		function validate(){
+			let name= document.getElementById('n').value;
+			let email= document.getElementById('m').value;
+			let password= document.getElementById('p').value;
+
+			let checkn = 0;
+			let checke = 0;
+			let dot=0;
+			let at = 0;
+			
+			if(name == "" || email == "" || password == ""){
+				alert("name is empty");
+			}
+			else if(strpos(name, ' ') == false){
+				alert("Name should contain at least two words");
+			}
+			else if(name.charAt(0) >= 0 && name.charAt(0) <= 9){
+				alert("Name must start with a letter");
+			}
+			else{
+				for (let i=0; i < strlen(name) ; i++) { 
+					if((ord(name[i]) >= 97 && ord(name[i]) <= 122) || (ord(name[i]) >= 65 && ord(name[i]) <= 90) ||  (name[i] == '.') || (name[i] == '-'))
+					{
+            			if (i == strlen(name)-1) {
+            				checkn = 1;
+
+            			}
+            		
+           			}
+					else{
+						alert("Name can contain a-z or A-Z or dot(.) or dash(-) only.");
+					}
+				}
+			}
+
+			if(email == ""){
+				alert("email is empty");
+			}
+			if (strpos(email, '@') == true && strpos(email, '.') == true) {
+				for (let j=0; i < strlen(email) ; j++) {
+					if((ord(email[j]) >= 97 && ord(email[j]) <= 122) || (ord(email[j]) >= 65 && ord(email[j]) <= 90) || (ord(email[j]) >= 48 && ord(email[j]) <= 57) ||  (email[j] == '.') || (email[j] == '@'))
+					{
+            			if (email[j]== '.') {
+            				dot = j;
+
+            			}
+            			if(email[j]== '@'){
+            				at = j;
+            			}
+
+           			}
+					else{
+						alert("email is not valid.");
+					}
+				}
+
+				if(dot > at)
+					checke =1;
+		}
+
+		if(checke == 1 && checkn == 1)
+		{
+			alert("Successful submission");
+		}
+	</script>
+</body>
+</html>
